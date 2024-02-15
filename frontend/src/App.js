@@ -12,14 +12,14 @@ import Join from './components/joinProject.component';
 import Demograhic from './components/Demograhic.component';
 import Interview from './components/Interview.component';
 
-const PrivateRoutes = () => {
-    let token = window.localStorage.getItem('token') //Add token here
-    return (
-        <>
-            {token ? <Outlet /> : <Navigate to='/user/login' />}
-        </>
-    )
-}
+// const PrivateRoutes = () => {
+//     let token = window.localStorage.getItem('token') //Add token here
+//     return (
+//         <>
+//             {token ? <Outlet /> : <Navigate to='/user/login' />}
+//         </>
+//     )
+// }
 
 
 
