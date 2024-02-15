@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Product development tool",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Pranay Shirish Ambre",
   "license": "ISC",
