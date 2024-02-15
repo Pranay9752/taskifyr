@@ -12,7 +12,10 @@
           "key": "Access-Control-Allow-Methods",
           "value": "GET,HEAD,PUT,PATCH,POST,DELETE"
         },
-        
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        }
       ]
     }
   ],
