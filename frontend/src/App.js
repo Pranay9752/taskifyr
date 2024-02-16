@@ -35,6 +35,7 @@ function App() {
                 <Route exact path="/user/interview" element={<Interview />} />
                 <Route element={<PrivateRoutes />}>
 
+                    <Route exact path="/" element={<></>} />
                     <Route exact path="/user/logout" element={<LogoutUser />} />
                     <Route exact path="/home" element={<Home />} />
                     <Route exact path="/project/:project_id" element={<Project />} />
