@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const serverless = require("serverless-http");
 
 require('dotenv').config();
 const multer = require('multer')
@@ -39,6 +40,7 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/user', authRoutes);
 app.use('/api/product', projectRoutes);
 
+const handler = serverless(app);
 
 
 const port = process.env.PORT || 8000;
@@ -46,3 +48,4 @@ app.listen(port, () => {
   console.log(`Server is running on ${port}`)
 });
 
+module.exports = handler
