@@ -12,9 +12,10 @@ const projectRoutes = require('./routes/project');
 
 //app
 const app = express();
-app.use(cors({
-  origin: "https://taskifyre.vercel.app/"
-}));
+app.use(cors())
+// app.use(cors({
+//   origin: "https://taskifyre.vercel.app/"
+// }));
 
 
 app.use(bodyParser.json({ limit: '50mb' }));
