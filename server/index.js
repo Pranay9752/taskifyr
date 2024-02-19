@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const multer = require('multer')
+const router = express.Router();
 
 //import routes
 const authRoutes = require('./routes/auth');
@@ -32,12 +33,22 @@ mongoose.connect(process.env.MONGODB_URI, {
 //middlewares
 // multer
 
-
+router.get('/', async (req, res) => {
+  try {
+    res.json({
+      status: 200,
+      message: "Hello World!"
+    })
+  } catch (error) {
+    return res.status(505).send("Server error")
+  }
+});
 
 //routes middleware
 app.use('/uploads', express.static('uploads'));
 app.use('/api/user', authRoutes);
 app.use('/api/product', projectRoutes);
+app.use('/', router);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {

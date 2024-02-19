@@ -25,4 +25,6 @@ router.get('/profile/:username', auth, profile);
 router.get('/:_id', auth, getUser);
 router.patch('/profile/update', auth, upload.single('image'), updateUser);
 
+
+
 module.exports = router;
