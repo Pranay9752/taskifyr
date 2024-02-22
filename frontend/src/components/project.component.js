@@ -35,7 +35,7 @@ const Project = () => {
         </h2>
         {project && <UserList usersData={project.team} />}
       </div>
-      {project && <ProjectPage className="w-[80%]" projectData={project} />}
+      {project && <ProjectPage className="w-[80%]" projectData={project} setProjectData={setProject} />}
     </div>
   );
 };

@@ -22,27 +22,27 @@ const EditProjectModal = ({ project, setProject, show, setShow }) => {
     e.preventDefault();
 
     try {
-        
 
-        const url = `${BASE_URL}api/product/update`;
-            const response = await axios.patch(url, {
-                id:project._id,
-                name: name,
-                description: description,
-            }, {
-                headers: {
-                    Authorization: `Bearer ${window.localStorage.getItem("token")}`,
-                },
-            });
-            await setProject(response.data)
-            setShow(false)
+
+      const url = `${BASE_URL}api/product/update`;
+      const response = await axios.patch(url, {
+        id: project._id,
+        name: name,
+        description: description,
+      }, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      });
+      setProject(response.data)
+      setShow(false)
 
 
     } catch (error) {
-        console.error(error);
-        // Handle the error, display an error message, or perform any other actions
+      console.error(error);
+      // Handle the error, display an error message, or perform any other actions
     }
-};
+  };
 
   return (
     <motion.nav
@@ -57,15 +57,15 @@ const EditProjectModal = ({ project, setProject, show, setShow }) => {
       >
         <h3 className="font-bold text-lg pb-3 mt-2">Update <span className="text-[#10a37f]">Project!</span></h3>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="border-2 p-2 border-[#10a37f] w-full rounded-lg" />
-        
+
         <textarea
-                    id="comment"
-                    rows="4"
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="border-2 p-2 border-[#10a37f] w-full rounded-lg"
-                    placeholder="Add project description..."
-                    value={description}
-                ></textarea>
+          id="comment"
+          rows="4"
+          onChange={(e) => setDescription(e.target.value)}
+          className="border-2 p-2 border-[#10a37f] w-full rounded-lg"
+          placeholder="Add project description..."
+          value={description}
+        ></textarea>
 
 
         {/* Submit button */}

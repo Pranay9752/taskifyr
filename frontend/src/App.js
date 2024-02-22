@@ -11,6 +11,7 @@ import Project from './components/project.component';
 import Join from './components/joinProject.component';
 import Demograhic from './components/Demograhic.component';
 import Interview from './components/Interview.component';
+import { Test } from './test';
 
 // const PrivateRoutes = () => {
 //     let token = window.localStorage.getItem('token') //Add token here
@@ -20,6 +21,7 @@ import Interview from './components/Interview.component';
 //         </>
 //     )
 // }
+
 
 
 
@@ -33,6 +35,8 @@ function App() {
                 <Route exact path="/user/login" element={<LoginUser />} />
                 <Route exact path="/join/:project_id" element={<Join />} />
                 <Route exact path="/user/interview" element={<Interview />} />
+                <Route exact path="/test" element={<Test />} />
+
                 <Route element={<PrivateRoutes />}>
 
                     <Route exact path="/" element={<></>} />
@@ -40,6 +44,7 @@ function App() {
                     <Route exact path="/home" element={<Home />} />
                     <Route exact path="/project/:project_id" element={<Project />} />
                     <Route exact path="/demographic/:project_id" element={<Demograhic />} />
+                    
 
                 </Route>
             </Routes>

@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { motion } from 'framer-motion';
 
 const Modal = ({
+    setProjectData,
     show,
     setShow,
     currentStatus,
@@ -37,6 +38,10 @@ const Modal = ({
                 },
             });
 
+            setProjectData((prev) => ({
+                ...prev,
+                [`tasks`]: response.data.tasks
+            }))
             setNewTask('');
             setNewDeadline('');
             setAssignTask([])

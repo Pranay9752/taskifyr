@@ -16,7 +16,7 @@ const variants = {
   closed: { scale: 0, opacity: 0 },
 };
 
-const ProjectPage = ({ projectData }) => {
+const ProjectPage = ({ projectData, setProjectData }) => {
   const taskCardRef = useRef(null);
   const [project, setProject] = useState(projectData);
   const [show, setShow] = useState(false);
@@ -56,6 +56,8 @@ const ProjectPage = ({ projectData }) => {
           },
         });
         setProject(response.data);
+
+
       } catch (error) {
         console.error(error);
       }
@@ -67,10 +69,10 @@ const ProjectPage = ({ projectData }) => {
   }, []);
 
   const { tasks } = project;
-  console.log(isAdmin)
-  const inProgressTasks = useMemo(() => tasks.filter((task) => task.status === 'inProgress'), [tasks]);
-  const completedTasks = useMemo(() => tasks.filter((task) => task.status === 'completed'), [tasks]);
-  const todoTasks = useMemo(() => tasks.filter((task) => task.status === 'todo'), [tasks]);
+
+  const inProgressTasks = useMemo(() => tasks?.filter((task) => task.status === 'inProgress'), [tasks, project]);
+  const completedTasks = useMemo(() => tasks?.filter((task) => task.status === 'completed'), [tasks, project]);
+  const todoTasks = useMemo(() => tasks?.filter((task) => task.status === 'todo'), [tasks, project]);
 
   const changeStatus = useCallback((taskId, newStatus) => {
     const url = `${BASE_URL}api/product/${project._id}/task/${taskId}/status`;
@@ -135,6 +137,7 @@ const ProjectPage = ({ projectData }) => {
       setNewDeadline('');
       setAssignTask([]);
       setShow(false);
+      setProjectData(response.data)
     } catch (error) {
       console.error(error);
     }
@@ -147,6 +150,15 @@ const ProjectPage = ({ projectData }) => {
   const handleChange = useCallback((e) => {
     // Handle the change event
   }, []);
+
+
+  useEffect(() => {
+    if (projectData) {
+      setProject(projectData)
+    }
+  }, [projectData])
+
+  console.log(project)
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -166,6 +178,7 @@ const ProjectPage = ({ projectData }) => {
             <Modal
               show={show}
               setShow={setShow}
+              setProjectData={setProject}
               currentStatus={currenStatus}
               project={project}
             />
