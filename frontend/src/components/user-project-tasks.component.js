@@ -50,7 +50,7 @@ function UserProjectTasks() {
     <>
       <div>
         {projects.length > 0 && (
-          <div className="flex items-center text-lg font-bold text-black hover:text-gray-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+          <div className="flex items-center text-lg font-bold text-black hover:text-gray-600 md:ml-2">
             <a href="#" className="ml-1 ">
               Tasks
             </a>
@@ -143,7 +143,7 @@ export default UserProjectTasks;
 //     return (
 //         <>
 //             <div>
-//                 {projects.length > 0 && <div className="flex items-center text-lg font-bold text-black hover:text-gray-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+//                 {projects.length > 0 && <div className="flex items-center text-lg font-bold text-black hover:text-gray-600 md:ml-2">
 //                     <a href="#" className="ml-1 ">
 //                         Tasks
 //                     </a>

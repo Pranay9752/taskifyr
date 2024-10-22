@@ -35,7 +35,7 @@ const Projects = ({ title, type }) => {
   return (
     <>
       {projects.length > 0 && (
-        <div className="flex items-center text-lg font-bold text-black hover:text-gray-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">
+        <div className="flex items-center text-lg font-bold text-black hover:text-gray-600 md:ml-2">
           <Link to="#" className="ml-1">
             {title}
           </Link>

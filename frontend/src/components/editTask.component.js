@@ -119,13 +119,13 @@ const Modal = ({
                             return (
                                 <span
                                     id={index}
-                                    className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded dark:bg-green-900 dark:text-green-300 overflow-auto"
+                                    className="inline-flex items-center px-2 py-1 mr-2 text-sm font-medium text-green-800 bg-green-100 rounded overflow-auto"
                                 >
                                     {member.user_id.username}
                                     <button
                                         type="button"
                                         onClick={deleteBadge}
-                                        className="inline-flex items-center p-1 ml-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-800 dark:hover:text-green-300"
+                                        className="inline-flex items-center p-1 ml-2 text-sm text-green-400 bg-transparent rounded-sm hover:bg-green-200 hover:text-green-900"
                                         aria-label="Remove"
                                     >
                                         <svg className="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -147,9 +147,9 @@ const Modal = ({
                         {/* Dropdown list of team members */}
                         <div
                             id="dropdownUsers"
-                            className="z-10  bg-green-100 rounded-lg shadow w-60 dark:bg-gray-700"
+                            className="z-10  bg-green-100 rounded-lg shadow w-60"
                         >
-                            <ul className="h-max py-2 mt-2 overflow-y-auto text-black   dark:text-gray-200" aria-labelledby="dropdownUsersButton">
+                            <ul className="h-max py-2 mt-2 overflow-y-auto text-black  " aria-labelledby="dropdownUsersButton">
                                 {/* Render team members */}
                                 {project && project.team.filter(user => user.user_id.username.toLowerCase().includes(query))
                                     .map((user, index) => {
@@ -164,7 +164,7 @@ const Modal = ({
                                             <li key={index} onClick={handleClick}>
                                                 <a
                                                     href="#"
-                                                    className="flex items-center px-4 py-2  hover:bg-green-200 hover:text-green-900 hover:font-bold dark:hover:bg-gray-600 dark:hover:text-white"
+                                                    className="flex items-center px-4 py-2  hover:bg-green-200 hover:text-green-900 hover:font-bold"
                                                 >
                                                     <img className="w-6 h-6 mr-2 rounded-full" src={`${BASE_URL}uploads/${user.user_id.image}`} alt="Jese image" />
                                                     {user.user_id.username}
